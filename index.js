@@ -20,5 +20,6 @@ io.sockets.on('connection', function (socket) {
   socket.on('broadcast:msg', function(data) {
     // Tell all the other clients (except self) about the new message
     socket.broadcast.emit('new:msg', data.message);
+    // if use io.sockets.emit it would also send it to self
   });
 });
